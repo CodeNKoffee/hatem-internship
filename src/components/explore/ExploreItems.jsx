@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "../UI/Skeleton";
 import Countdown from "../Countdown";
+import AosWrapper from "../UI/AosWrapper";
 
 const ExploreItems = () => {
 
