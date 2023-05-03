@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "../UI/Skeleton";
 import Countdown from "../Countdown";
-
 const ExploreItems = () => {
-
+  // Set initial state variables
   const [nfts, setNFTs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [itemCount, setItemCount] = useState(8);
 
   useEffect(() => {
+    // Call fetchNFTs() when component mounts
     fetchNFTs();
   },[])
 
   async function fetchNFTs() {
+    // Fetch NFTs from API and set state variables
     const { data } = await axios.get(
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
     );
@@ -22,6 +23,7 @@ const ExploreItems = () => {
   }
 
   async function filterNFTs(filter) {
+    // Filter NFTs based on selected filter and set state variables
     setLoading(false);
     const { data } = await axios.get(
       `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filter}`
@@ -59,7 +61,7 @@ const ExploreItems = () => {
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
                 >
-                  <img className="lazy" src={nft.authorImage} alt="" />
+                  <img className="lazy" src={nft.authorImage} alt={nft.authorName} />
                   <i className="fa fa-check"></i>
                 </Link>
               </div>
@@ -69,7 +71,7 @@ const ExploreItems = () => {
                   <img
                     src={nft.nftImage}
                     className="lazy nft__item_preview"
-                    alt=""
+                    alt={nft.title}
                   />
                 </Link>
               </div>
