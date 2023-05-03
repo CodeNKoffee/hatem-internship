@@ -9,29 +9,29 @@ const ExploreItems = () => {
   const [loading, setLoading] = useState(true);
   const [itemCount, setItemCount] = useState(8);
 
-  useEffect(() => {
-    // Call fetchNFTs() when component mounts
-    fetchNFTs();
-  },[])
-
   async function fetchNFTs() {
     // Fetch NFTs from API and set state variables
     const { data } = await axios.get(
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
-    );
-    setNFTs(data);
+      );
+      setNFTs(data);
+    }
+    
+    async function filterNFTs(filter) {
+      // Filter NFTs based on selected filter and set state variables
+      setLoading(false);
+      const { data } = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filter}`
+        );
+        
+      setNFTs(data);
+      setLoading(true);
   }
-
-  async function filterNFTs(filter) {
-    // Filter NFTs based on selected filter and set state variables
-    setLoading(false);
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filter}`
-    );
-
-    setNFTs(data);
-    setLoading(true);
-  }
+      
+  useEffect(() => {
+    // Call fetchNFTs() when component mounts
+    fetchNFTs();
+  },[])
 
   return (
     <>
