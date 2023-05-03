@@ -110,7 +110,7 @@ const NewItems = () => {
                         data-bs-placement="top"
                         title="Creator: Monica Lucas"
                       >
-                        <img className="lazy" src={newItem.authorImage} alt="" />
+                        <img className="lazy" src={newItem.authorImage} alt={newItem.authorName} />
                         <i className="fa fa-check"></i>
                       </Link>
                     </div>

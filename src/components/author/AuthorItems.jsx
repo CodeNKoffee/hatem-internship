@@ -4,6 +4,7 @@ import Skeleton from "../UI/Skeleton";
 import AosWrapper from "../UI/AosWrapper";
 
 const AuthorItems = ({ authorData }) => {
+  // create an array of 8 Skeleton components with a loading state
   const loading = new Array(8).fill(0).map((_, index) => (
     <div key={index} className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
       <Skeleton width="100%" height="400px" />
@@ -12,11 +13,14 @@ const AuthorItems = ({ authorData }) => {
 
   return (
     <AosWrapper>
+      {/* AOS animation wrapper */}
       <div className="de_tab_content">
         <div className="tab-1">
           <div className="row">
+            {/* if authorData or nftCollection is not available, show the loading state */}
             {!authorData || !authorData.nftCollection
               ? loading
+              // else, map through the nftCollection and render each item
               : authorData.nftCollection.map((item, index) => (
                   <div
                     className="col-lg-3 col-md-6 col-sm-6 col-xs-12"

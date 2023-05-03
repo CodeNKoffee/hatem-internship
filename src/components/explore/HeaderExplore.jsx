@@ -62,7 +62,8 @@ const HeaderExplore = () => {
               </li>
             </ul>
           </div>
-
+          
+          {/* Dropdown for selecting buying options */}
           <div id="buy_category" className="dropdown">
             <a href="#" className="btn-selector">
               Buy Now
@@ -79,7 +80,8 @@ const HeaderExplore = () => {
               </li>
             </ul>
           </div>
-
+          
+          {/* Dropdown for selecting item types */}
           <div id="items_type" className="dropdown">
             <a href="#" className="btn-selector">
               All Items
