@@ -1,5 +1,7 @@
 import React from "react";
 
+// DO NOT REMOVE!!!
+
 const Skeleton = ({ width, height, borderRadius }) => {
   return (
     <div
